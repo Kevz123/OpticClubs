@@ -1,0 +1,639 @@
+
+/* General Styles */
+html {
+    scroll-behavior: smooth;
+}
+
+*::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#banner{
+    background:linear-gradient(rgba(0,0,0,0.5),#128b9e94),url(image/home\ back.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    position: relative;
+    box-shadow: rgb(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+#bannerdi{
+    background:linear-gradient(rgba(0,0,0,0.5),#128b9e94),url(image/home\ back.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    position: relative;
+    box-shadow: rgb(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: none;
+}
+
+.navbar .logo {
+    width: 100px; /* Adjust width as needed */
+    height: auto;
+    margin-right: 20px;
+}
+
+/* Import a custom font (e.g., Google Fonts) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+/* Apply custom font to navbar links */
+.navbar nav a {
+    font-family: 'Poppins', sans-serif; /* Custom font */
+    font-size: 1.5em; /* Adjust font size */
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    transition: color 0.3s ease, border-bottom 0.3s ease; /* Smooth transition for hover effects */
+    padding-bottom: 5px; /* Adds space for the underline effect */
+}
+
+/* Hover effect: underline and color change */
+.navbar nav a:hover {
+    color: #ffcc00; /* Changes color on hover */
+    border-bottom: 2px solid #ffcc00; /* Adds a bottom border on hover */
+}
+
+
+/* Hero Section */
+.hero1 {
+    background-color: #f0f0f0;
+    color: #333;
+    text-align: center;
+    padding: 40px;
+    font-size: 1.2em;
+    line-height: 1.5;
+    font-style: italic;
+    max-width: 800px;
+    margin: 30px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.hero{
+    text-align: center;
+    color: #009688;
+    padding-top: 100px;
+    margin-top: -50px;
+}
+.hero h3{
+    font-size: 30px;
+    font-style: italic;
+    color: #7aebd5;
+}
+.hero h1{
+    font-size: 100px;
+    font-family:serif;
+    font-style: italic;
+    color: #7aebd5 ;
+}
+
+.hometextbtn{
+    margin: 70px auto 0;
+    margin-left: 45%;
+    position: relative;
+}
+.hometextbtn a{
+    width: 150px;
+    text-decoration: none;
+    font-size: 20px;
+    text-transform: uppercase;
+    display: inline-block;
+    margin: 0 10px;
+    padding: 12px 0;
+    color: white;
+    position: relative;
+    z-index: 1;
+    transition: color 0.5s;
+}
+.hometextbtn span{
+    padding: 10px 15px;
+    /* position: fixed; */
+    top: 0;
+    left: 0;
+    background: transparent;
+    z-index: 99999;
+    transition: 0.5s;
+    pointer-events: none;
+    border-radius: 20px;
+}
+.hometextbtn a:hover span{ /* Changes color on hover */
+    background: #ffcc00;
+    border-bottom: 2px solid #ffcc00; /* Adds a bottom border on hover */
+}
+
+
+/* Events Section */
+.events-section {
+    display: flex;
+    justify-content: space-between; /* Ensures space is distributed between containers */
+    align-items: flex-start; /* Align items at the top */
+    gap: 20px; /* Adds spacing between the calendar and events */
+    padding: 20px;
+}
+
+
+.upcoming-events-container {
+    width: 66%; /* 2/3 of the page */
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping for event cards */
+    gap: 20px; /* Space between event cards */
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Upcoming Events */
+.upcoming-events {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    justify-content: space-around;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-left: 50px;
+}
+
+.event {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 23%; /* Adjust the width to fit four images side by side */
+}
+
+.event img {
+    width: 100%; /* Makes the images responsive */
+    height: auto; /* Maintains the aspect ratio */
+    border-radius: 5px; /* Optional: Adds rounded corners to the images */
+}
+
+.upcoming-events .event img {
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width: 100%;
+    height: auto;
+}
+
+.upcoming-events .event p {
+    margin: 0;
+    font-weight: bold;
+}
+
+
+.events-list {
+ /* Ensures event cards wrap to new rows */
+    gap: 20px; /* Space between event cards */
+}
+
+/* Style for the join button */
+.join-button {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #0066cc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif; /* Matches navigation font */
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect for the join button */
+.join-button:hover {
+    background-color: #ffcc00;
+    color: #333;
+}
+
+
+footer {
+    background:linear-gradient(rgba(0,0,0,0.5),#0066cc),url(image/pexels-markusspiske-114296.jpg);
+    padding: 60px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    width: 100%;
+}
+.footer-content .footer-text{
+    width: 40%;
+    margin-left: -200px;
+}
+
+.footer-content .logo {
+    width: 150px;
+    height: auto;
+    margin-right: 100px;
+}
+
+.footer-content .logo1 {
+    width: 30px;
+    height: auto;
+    
+}
+
+/* Calendar Styles */
+.calendar-container {
+    width: 21%; /* 1/3 of the page */
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.calendar-container h2{
+    align-items: center;
+}
+
+.calendar {
+    max-width: 330px;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.calendar-header button {
+    background-color: #0066cc;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#month-year {
+    font-weight: bold;
+}
+
+.calendar-weekdays,
+.calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+.calendar-weekdays {
+    font-weight: bold;
+    color: #0066cc;
+    padding: 5px 0;
+}
+
+.calendar-days div {
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #e6e6e6;
+    text-align: center;
+}
+
+.calendar-days div.today {
+    background-color: #0066cc;
+    color: white;
+    font-weight: bold;
+}
+
+
+
+.container {
+    margin: 100px 0 0 200px;
+    margin-bottom: 100px;
+    width: 70%;
+    height: 450px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all ease-in-out 0.5s;
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+}
+
+.container img:hover {
+    width: 150%;
+}
+
+/* Overlay effect to add a permanent fade */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Adjust opacity as needed */
+    border-radius: 10px;
+    pointer-events: none; /* Allows click-through to other elements */
+}
+
+/* Static overlay text styling */
+.overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+    pointer-events: none;
+    text-align: center;
+}
+
+/* Hover search button styling */
+.search-button {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.5em;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 8px;
+    border-radius: 25%;
+    display: none;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.image-container:hover .search-button {
+    display: block;
+}
+
+
+
+
+
+
+
+
+
+
+.search-sort-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+    justify-content: center;
+}
+
+#searchInput, #sortSelect, button {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#searchInput {
+    width: 200px;
+}
+
+.join-button{
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.join-button:hover {
+    background-color: #45a049;
+}
+
+
+
+
+
+.form-container {
+    width: 60%;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+select,
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.submit-btn {
+    margin-top: 20px;
+    width: 100%;
+    padding: 10px;
+    background-color: #0066cc;
+    color: white;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: #ffcc00;
+}
+
+input[type="file"] {
+    margin-top: 10px;
+    font-size: 0.9em;
+}
+
+
+
+
+.club-container {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+}
+
+.club-container h3 {
+    margin-top: 0;
+    font-size: 1.5em;
+    color: #333;
+}
+
+.club-container p {
+    margin: 10px 0;
+    font-size: 1em;
+    color: #555;
+}
+
+.club-container strong {
+    color: #333;
+}
+
+
+
+
+
+
+
+.clubs-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.club-card {
+    background-color: #ffffff;
+    width: 250px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+}
+
+.club-image {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ddd;
+}
+
+.club-card h2 {
+    font-size: 1.25rem;
+    margin: 10px 0;
+}
+
+.btn {
+    background-color: #0066cc;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+}
+.btn:hover {
+    background-color: #004da2;
+}
+
+
+
+
+.clubsowner-container{
+    display: flex;
+    justify-content: space-evenly; /* Distribute space between items */
+    gap: 50px; /* Optional: Adds space between the images */
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    padding: 20px;
+    background-color: #7fa3e5;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+}
+
+.clubsowner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    justify-content: space-around;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.club {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 23%; /* Adjust the width to fit four images side by side */
+}
+
+.club img {
+    width: 100%; /* Makes the images responsive */
+    height: auto; /* Maintains the aspect ratio */
+    border-radius: 5px; /* Optional: Adds rounded corners to the images */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
