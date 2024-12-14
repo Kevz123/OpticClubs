@@ -107,16 +107,23 @@ Route::get('/equipment/book', [LocationController::class, 'book'])->name('equipm
 Route::post('/locations/store', [LocationController::class, 'store'])->name('locations.store'); // For adding locations
 Route::get('/equipment/show/{id}', [LocationController::class, 'show'])->name('equipment.show'); // For showing specific location
 Route::post('/bookings/store', [EquipmentController::class, 'storeBooking'])->name('bookings.store');
+Route::get('/location/{id}', [LocationController::class, 'show'])->name('location.show');
+
 // Club routes
 //Route::get('/my-clubs', [ClubController::class, 'myClubs'])->name('clubs.my');
 
 //Payment Routes
 Route::post('/create-checkout-session', [PaymentController::class, 'createCheckoutSession'])->name('payment.create');
-//Route::get('/payment-success', [PaymentController::class, 'success'])->name('payment.success');
-//Route::get('/payment-cancel', [PaymentController::class, 'cancel'])->name('payment.cancel');
 
 //Route::post('/stripe/checkout', [PaymentController::class, 'createCheckoutSession'])->name('stripe.checkout');
 
 Route::get('/clubs/register', function () {
-    return view('clubs.register'); // Use dot notation for subfolders
+    return view('clubs.register'); 
 })->name('clubs.register');
+
+
+//Route::post('/payment/create', [PaymentController::class, 'createCheckoutSession'])->name('payment.create');
+Route::get('/payment/success', [PaymentController::class, 'paymentSuccess'])->name('payment.success');
+
+
+

@@ -51,6 +51,7 @@ class ClubController extends Controller
             'clubSize' => 'required|in:small,medium,large',
             'clubType' => 'required|in:physical,non-physical',
             'main_image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'payment' => 'required|numeric|min:0', // Validate payment
             'timetable' => 'required|array',
             'timetable.*.day' => 'required|string|in:Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday',
             'timetable.*.time' => 'required|regex:/^\d{2}:\d{2}\s*-\s*\d{2}:\d{2}$/',
@@ -63,6 +64,7 @@ class ClubController extends Controller
         $club->description = $validatedData['clubDescription'];
         $club->club_type = $validatedData['clubSize'];
         $club->physical_type = $validatedData['clubType'];
+        $club->payment = $validatedData['payment']; // Store the payment amount
 
         
         

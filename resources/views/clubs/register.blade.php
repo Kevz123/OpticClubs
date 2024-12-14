@@ -46,16 +46,6 @@
     <div class="form-container">
         <h2>CLUB FORM</h2>
 
-        <div id="payment-section">
-            <label>Payment</label>
-            <form method="POST" action="{{ route('payment.create') }}" id="paymentForm">
-                @csrf
-                <input type="hidden" name="amount" value="100"> <!-- Dynamic amount -->
-                <input type="hidden" name="description" value="Club Registration">
-                <button type="button" id="payButton">Make Payment</button>
-            </form>
-        </div>
-        <br>
         <form method="POST" action="{{ route('clubs.store') }}" id="clubForm" enctype="multipart/form-data" onsubmit="return validateForm()">
             @csrf
             
@@ -89,7 +79,7 @@
             <br>
 
             <!-- Amount to Pay -->
-            <p id="amountToPay">Amount to Pay: $0</p>
+            <p id="amountToPay">Amount to Pay: LKR 0</p>
 
             <!-- Hidden Payment Field -->
             <input type="hidden" id="payment" name="payment" value="0">
@@ -124,6 +114,7 @@
             </table>
             <br>
             
+            <p>Please make sure you make the payment before registering your club.</p>
 
             <!-- Submit Button -->
             <button type="submit" id="registerButton" class="submit-btn" disabled>Register Club</button>
@@ -133,12 +124,22 @@
             <br>
         </form>
 
+        <div id="payment-section">
+            <label>Payment</label>
+            <form method="POST" action="{{ route('payment.create') }}" id="paymentForm">
+                @csrf
+                <input type="hidden" name="amount" id="paymentAmount" value="100"> <!-- Updated dynamically -->
+                <input type="hidden" name="description" value="Club Registration">
+                <button type="submit" id="payButton" class="submit-btn">Make Payment</button>
+            </form>
+        </div>
+        
         <script>
     // Payment amounts for each club size
     const paymentAmounts = {
-        small: 100,  // $100 for small clubs
-        medium: 200, // $200 for medium clubs
-        large: 300   // $300 for large clubs
+        small: 1000,  // $100 for small clubs
+        medium: 2500, // $200 for medium clubs
+        large: 5000,   // $300 for large clubs
     };
 
     const clubSizeSelect = document.getElementById("clubSize");
@@ -156,6 +157,65 @@
     // Trigger change event on page load to set initial amount
     clubSizeSelect.dispatchEvent(new Event("change"));
 </script>
+
+<script>
+    // Save form data to localStorage
+    function saveFormData() {
+        const formData = {};
+        const inputs = document.querySelectorAll('#clubForm input, #clubForm textarea, #clubForm select');
+
+        inputs.forEach(input => {
+            if (input.type === 'radio') {
+                formData[input.name] = document.querySelector(`input[name="${input.name}"]:checked`)?.value || '';
+            } else {
+                formData[input.name] = input.value;
+            }
+        });
+
+        localStorage.setItem('clubFormData', JSON.stringify(formData));
+    }
+
+    // Restore form data from localStorage
+    function restoreFormData() {
+        const savedData = localStorage.getItem('clubFormData');
+        if (savedData) {
+            const formData = JSON.parse(savedData);
+            const inputs = document.querySelectorAll('#clubForm input, #clubForm textarea, #clubForm select');
+
+            inputs.forEach(input => {
+                if (input.type === 'radio') {
+                    if (formData[input.name] === input.value) {
+                        input.checked = true;
+                    }
+                } else {
+                    input.value = formData[input.name] || '';
+                }
+            });
+
+            // Trigger change event for dynamic fields like clubSize
+            document.getElementById('clubSize').dispatchEvent(new Event('change'));
+        }
+    }
+
+    // Remove form data from localStorage after successful submission
+    function clearFormData() {
+        localStorage.removeItem('clubFormData');
+    }
+
+    // Save form data on input changes
+    const formInputs = document.querySelectorAll('#clubForm input, #clubForm textarea, #clubForm select');
+    formInputs.forEach(input => {
+        input.addEventListener('input', saveFormData);
+        input.addEventListener('change', saveFormData);
+    });
+
+    // Restore data on page load
+    window.addEventListener('load', restoreFormData);
+
+    // Clear form data on successful submission
+    document.getElementById('clubForm').addEventListener('submit', clearFormData);
+</script>
+
 
         <script>
             let rowIndex = 1;
@@ -245,7 +305,7 @@
 
                 // Check payment status and enable the button if payment is successful
                 if (paymentStatus === 'success') {
-                    alert('Payment completed successfully! You can now register the club.');
+                    alert('Payment completed successfully! You can now submit the form.');
                     registerButton.disabled = false; // Enable the Register Club button
                 } else if (paymentStatus === 'cancel') {
                     alert('Payment was canceled. Please try again.');
