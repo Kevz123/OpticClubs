@@ -38,9 +38,9 @@ class LocationController extends Controller
     }
 
     // Show the equipment table
-    public function show($id)
+    public function show($equipment_id)
     {
-        $location = Location::with('equipment')->find($id); // Fetch location with related equipment
+        $location = Location::with('equipment')->find($equipment_id); // Fetch location with related equipment
         return view('equipment.show', compact('location')); // Pass location to the show view
     }
 }

@@ -105,9 +105,10 @@ Route::post('/events/{event}/reserve', [EventController::class, 'reserve'])->nam
 
 Route::get('/equipment/book', [LocationController::class, 'book'])->name('equipment.book'); // For book view
 Route::post('/locations/store', [LocationController::class, 'store'])->name('locations.store'); // For adding locations
-Route::get('/equipment/show/{id}', [LocationController::class, 'show'])->name('equipment.show'); // For showing specific location
+//Route::get('/equipment/show/{id}', [LocationController::class, 'show'])->name('equipment.show'); // For showing specific location
 Route::post('/bookings/store', [EquipmentController::class, 'storeBooking'])->name('bookings.store');
-Route::get('/location/{id}', [LocationController::class, 'show'])->name('location.show');
+Route::get('/equipment/show/{equipment_id}', [LocationController::class, 'show'])->name('equipment.show');
+
 
 // Club routes
 //Route::get('/my-clubs', [ClubController::class, 'myClubs'])->name('clubs.my');
@@ -124,6 +125,6 @@ Route::get('/clubs/register', function () {
 
 //Route::post('/payment/create', [PaymentController::class, 'createCheckoutSession'])->name('payment.create');
 Route::get('/payment/success', [PaymentController::class, 'paymentSuccess'])->name('payment.success');
-
+Route::get('/payment/cancel', [PaymentController::class, 'paymentCancel'])->name('payment.cancel');
 
 
